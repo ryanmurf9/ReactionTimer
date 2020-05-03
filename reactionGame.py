@@ -4,23 +4,15 @@ import sqlite3
 import re
 
 screenW, screenH = pyautogui.size()
+print(screenW)
+print(screenH)
 
 
-text=pyautogui.size()
 
-
-#Change resolution from pyautogui format to tKinter format
-def resolution():
-    text=str(pyautogui.size())
-    size= re.sub(r'''(Size)|width=|,|height=|([()])''',"",text)
-    size=size.split()
-    resolution=size[0] +"x"+ size[1]
-    return[resolution]
-
-
+resolution=str(screenW)+"x"+str(screenH)
 
 window = tk.Tk()
-window.geometry(resolution())
+window.geometry(resolution)
 #Must be in window.geometry("500x500") format
 
 
