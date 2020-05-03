@@ -1,7 +1,7 @@
 import pyautogui
 import tkinter as tk
 import sqlite3
-import re
+
 
 screenW, screenH = pyautogui.size()
 print(screenW)
