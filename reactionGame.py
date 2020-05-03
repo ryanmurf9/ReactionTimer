@@ -24,11 +24,17 @@ window.geometry(resolution())
 #Must be in window.geometry("500x500") format
 
 
-entry = tk.Entry(fg="yellow", bg="blue", width=50)
+entry = tk.Entry(
+    font=("Courier", 30),
+    fg="black",
+    bg="#f0f0f0",
+    width=50
+)
 entry.insert(0, "Username")
 entry.pack()
 
 label = tk.Label(
+    font=("Courier", 30),
     padx=100,
     pady=100,
     text="Reaction Test",
@@ -37,8 +43,9 @@ label = tk.Label(
 )
 label.pack()
 gameButton = tk.Button(
+    font=("Courier", 30),
     padx=100,
-    pady=100,
+    pady=50,
     text="To Go To Game",
     width=25,
     height=5,
@@ -47,8 +54,9 @@ gameButton = tk.Button(
 )
 gameButton.pack()
 highScoreButton = tk.Button(
+    font=("Courier", 30),
     padx=100,
-    pady=100,
+    pady=50,
     text="High Scores",
     width=25,
     height=5,
