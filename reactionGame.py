@@ -12,6 +12,7 @@ print(screenH)
 resolution=str(screenW)+"x"+str(screenH)
 
 window = tk.Tk()
+window.title("Reaction Game")
 window.geometry(resolution)
 #Must be in window.geometry("500x500") format
 
