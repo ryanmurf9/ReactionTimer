@@ -2,20 +2,42 @@ import pyautogui
 import tkinter as tk
 import sqlite3
 import time
+import random
 
 
-def spawnNewButton():
-    global x
-    x=x+50
-    global y
-    y=y+50
-    gameButton.place(x=x, y=y)
+class Button(tk.Button):
+    def __init__(self,window,width,height,background,counter,startTime):
+        super().__init__(window,width=width,height=height,background=background,command=self.clicked)
+        self.startTime=startTime
+        self.counter=counter
+        self.spawnNewButton()
+       
+        
+    def clicked(self):
+        print("Clicked")
+        button.place_forget()
+        self.spawnNewButton()
+        
+    def spawnNewButton(self):
+        print(self.counter)
+        if self.counter < 10:
+            self.place(x=random.randint(50,(screenW-50)),y=random.randint(50,(screenH-100)))
+            self.counter=self.counter+1
+        else:
+            self.finish()
+
+    def finish(self):
+        print("You're done hoe")
+        endTime= (time.time()-self.startTime)
+        print(f'This is how long you took {endTime:.2f} seconds')
+        
+    
+
 
     
-def clicked():
-    print("pooPooPeepee")
-    gameButton.place_forget()
-    spawnNewButton()
+
+        
+
 
 #Sorts out resolution
 screenW, screenH = pyautogui.size()
@@ -24,16 +46,11 @@ window = tk.Tk()
 window.title("Reaction Game")
 window.geometry(resolution)
 #
-global gameButton
-gameButton= tk.Button(
-        window,
-        width=10,
-        height=5, 
-        background="red",
-        command=clicked 
-    )
 
-x=100
-y=100
+
 startTime=time.time()
-spawnNewButton()
+print(startTime)
+button=Button(window,10, 5, "red",0,startTime)  
+print(button.counter)
+
+       
