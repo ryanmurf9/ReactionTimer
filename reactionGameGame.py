@@ -6,7 +6,7 @@ import random
 
 
 class Button(tk.Button):
-    def __init__(self,window22,width,height,background,counter,startTime):
+    def __init__(self,window2,width,height,background,counter,startTime):
         super().__init__(window2,width=width,height=height,background=background,command=self.clicked)
         self.startTime=startTime
         self.counter=counter
