@@ -15,17 +15,10 @@ window = tk.Tk()
 window.title("Reaction Game")
 window.geometry(resolution)
 #Must be in window.geometry("500x500") format
-def username():
-    return()
 
-entry = tk.Entry(
-    font=("Courier", 30),
-    fg="black",
-    bg="#f0f0f0",
-    width=50
-)
-entry.insert(0, "Username")
-entry.pack()
+def clicked():
+    print("clicked")
+    import reactionGameGame
 
 label = tk.Label(
     font=("Courier", 30),
@@ -40,11 +33,12 @@ gameButton = tk.Button(
     font=("Courier", 30),
     padx=100,
     pady=50,
-    text="To Go To Game",
+    text="Play Game",
     width=25,
     height=5,
     foreground="black",  
-    background="#f0f0f0"
+    background="#f0f0f0",
+    command=clicked
 )
 gameButton.pack()
 highScoreButton = tk.Button(
@@ -55,7 +49,7 @@ highScoreButton = tk.Button(
     width=25,
     height=5,
     foreground="black",  
-    background="#f0f0f0",
+    background="#f0f0f0"
     
 )
 highScoreButton.pack()
