@@ -19,6 +19,7 @@ window.geometry(resolution)
 def clicked():
     print("clicked")
     import reactionGameGame
+    window.destroy()
 
 label = tk.Label(
     font=("Courier", 30),
