@@ -21,7 +21,7 @@ class Button(tk.Button):
     def spawnNewButton(self):
         print(self.counter)
         if self.counter < 10:
-            self.place(x=random.randint(50,(screenW-50)),y=random.randint(50,(screenH-100)))
+            self.place(x=random.randint(50,(screenW-50)),y=random.randint(100,(screenH-200)))
             self.counter=self.counter+1
         else:
             self.finish()
@@ -30,7 +30,15 @@ class Button(tk.Button):
         print("You're done hoe")
         endTime= (time.time()-self.startTime)
         print(f'This is how long you took {endTime:.2f} seconds')
-        
+        label = tk.Label(
+            font=("Courier", 30),
+            padx=100,
+            pady=100,
+            text=(f'This is how long you took {endTime:.2f} seconds'),
+            foreground="black",  
+            background="#f0f0f0"
+        )
+        label.pack()
     
 
 
@@ -53,4 +61,4 @@ print(startTime)
 button=Button(window,10, 5, "red",0,startTime)  
 print(button.counter)
 
-       
+
