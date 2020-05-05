@@ -9,14 +9,46 @@ window3.title("Reaction Game")
 window3.geometry(resolution)
 #
 
-#class score(tk.Label):
-#    def __init__(self)
-
+class score(tk.Label):
+    def __init__(self):
+        self.newx=(screenW/2)
+        self.newy=250
+        self.counter=0
+    def createScreen(self):
+        while self.counter <10:
+            label1 = tk.Label(
+                font=("Courier", 20),
+                text=userArray[self.counter],
+                foreground="black",  
+                background="#f0f0f0",
+            )
+    
+            label1.place(x=self.newx-100,y=self.newy)
+            label2 = tk.Label(
+                font=("Courier", 20),
+                text=scoreArray[self.counter],
+                foreground="black",  
+                background="#f0f0f0",
+                
+            )
+            label2.place(x=self.newx,y=self.newy)
+            label3 = tk.Label(
+                font=("Courier", 20),
+                text=dateArray[self.counter],
+                foreground="black",  
+                background="#f0f0f0",
+        
+            )
+            label3.place(x=self.newx+100,y=self.newy)
+            self.newy=self.newy+50
+            self.counter=self.counter+1
+    
 
 userArray=['one','two','three','four','five','six','seven','eight','nine','ten']
 scoreArray=['1','2','3','4','5','6','7','8','9','10']
 dateArray=['1/1','1/2','1/3','1/4','1/5','1/6','1/7','1/8','1/9','1/10']
-x=0
+
+
 label = tk.Label(
     font=("Courier", 50),
     padx=100,
@@ -25,40 +57,10 @@ label = tk.Label(
     foreground="black",  
     background="#f0f0f0"
 )
-
-
 label.pack()
-counter=0
-newx=(screenW/2)
-newy=250
-while counter <10:
-    label1 = tk.Label(
-        font=("Courier", 20),
-        text=userArray[counter],
-        foreground="black",  
-        background="#f0f0f0",
-
-        
-    )
-    label1.place(x=newx-100,y=newy)
-    label2 = tk.Label(
-        font=("Courier", 20),
-        text=scoreArray[counter],
-        foreground="black",  
-        background="#f0f0f0",
-        
-    )
-    label2.place(x=newx,y=newy)
-    label3 = tk.Label(
-        font=("Courier", 20),
-        text=dateArray[counter],
-        foreground="black",  
-        background="#f0f0f0",
-        
-    )
-    label3.place(x=newx+100,y=newy)
-    newy=newy+50
-    counter=counter+1
 
 
 
+
+score=score()
+score.createScreen()
