@@ -4,8 +4,14 @@ from datetime import datetime
 
 #Handles all database functions
 class Database:
+    #Creating Lists
+    def __init__(self):
+        self.userList = []
+        self.scoreList = []
+        self.dateList = []
+        
     #Used to create the SQL Database; only used once
-    def tableCreator():
+    def tableCreator(self):
         connection = sqlite3.connect("highScores.sqlite")
         crsr = connection.cursor()
         tableMaker = """CREATE TABLE scoreTable(user TEXT, score FLOAT, date DATETIME);"""
@@ -13,7 +19,7 @@ class Database:
         connection.close()
 
     #Adds score to SQL Database if it is high enough
-    def checkAddHighScore(user, score):
+    def checkAddHighScore(self, user, score):
         connection = sqlite3.connect("highScores.sqlite")
         crsr = connection.cursor()
 
@@ -42,16 +48,21 @@ class Database:
         connection.close()
 
     #Used to retrieve and formate the highscore table data
-    def retriveScoreData():
+    def getScoreData(self):
         #Connecting to database and filling scoreArray with data
         connection = sqlite3.connect("highScores.sqlite")
         crsr = connection.cursor()
         crsr.execute("SELECT * FROM scoreTable")
         scoreArray = crsr.fetchall()
+        for x in scoreArray:
+            self.userList.append(x[0])
+            self.scoreList.append(x[1])
+            self.dateList.append(x[2])
+            
         
-
-    
-
+db = Database()
+db.tableCreator()
+db.checkAddHighScore("hello", 150)
 
 
 
