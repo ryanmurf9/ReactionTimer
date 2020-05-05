@@ -52,17 +52,17 @@ class Database:
         #Connecting to database and filling scoreArray with data
         connection = sqlite3.connect("highScores.sqlite")
         crsr = connection.cursor()
-        crsr.execute("SELECT * FROM scoreTable")
+        crsr.execute("SELECT * FROM scoreTable ORDER BY score ASC")
         scoreArray = crsr.fetchall()
         for x in scoreArray:
             self.userList.append(x[0])
             self.scoreList.append(x[1])
             self.dateList.append(x[2])
             
+            
         
 db = Database()
-db.tableCreator()
-db.checkAddHighScore("hello", 150)
+db.getScoreData()
 
 
 
