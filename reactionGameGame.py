@@ -6,8 +6,8 @@ import random
 
 
 class Button(tk.Button):
-    def __init__(self,window2,width,height,background,counter,startTime):
-        super().__init__(window2,width=width,height=height,background=background,command=self.clicked)
+    def __init__(self,window,width,height,background,counter,startTime):
+        super().__init__(window,width=width,height=height,background=background,command=self.clicked)
         self.startTime=startTime
         self.counter=counter
         self.spawnNewButton()
@@ -36,10 +36,18 @@ class Button(tk.Button):
             background="#f0f0f0"
         )
         label.pack()
-    
+        self.gameOver()
 
+        
+    def gameOver(self):
+        gameOver= tk.Button(
+            font=("Courier", 30),
+            text=('Game Over'),
+            foreground="black",  
+            background="#f0f0f0"
+        )
+        gameOver.pack()
 
-    
 
         
 
@@ -47,14 +55,14 @@ class Button(tk.Button):
 #Sorts out resolution
 screenW, screenH = pyautogui.size()
 resolution=str(screenW)+"x"+str(screenH)
-window2 = tk.Tk()
-window2.title("Reaction Game")
-window2.geometry(resolution)
+window = tk.Tk()
+window.title("Reaction Game")
+window.geometry(resolution)
 #
 
 
 startTime=time.time()
-button=Button(window2,10, 5, "red",0,startTime)  
+button=Button(window,10, 5, "red",0,startTime)  
 
 
 
