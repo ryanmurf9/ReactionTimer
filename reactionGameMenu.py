@@ -15,7 +15,8 @@ window = tk.Tk()
 window.title("Reaction Game")
 window.geometry(resolution)
 #Must be in window.geometry("500x500") format
-
+def username():
+    return()
 
 entry = tk.Entry(
     font=("Courier", 30),
@@ -54,7 +55,8 @@ highScoreButton = tk.Button(
     width=25,
     height=5,
     foreground="black",  
-    background="#f0f0f0"
+    background="#f0f0f0",
+    
 )
 highScoreButton.pack()
 
