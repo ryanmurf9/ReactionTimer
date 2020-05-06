@@ -2,29 +2,25 @@ import pyautogui
 import tkinter as tk
 import sqlite3
 
+print('yeet this meat')
 
-screenW, screenH = pyautogui.size()
-
-
-resolution=str(screenW)+"x"+str(screenH)
-
-window = tk.Tk()
-window.title("Reaction Game")
-window.geometry(resolution)
 #Must be in window.geometry("500x500") format
 #When the game button is clicked it opens the game 
 def clickedGame():
-    import reactionGameGame
-    label.pack_forget()
     gameButton.pack_forget()
     highScoreButton.pack_forget()
+    label.pack_forget()
+    import reactionGameGame
+    
+    
 #
 #When High scores are clicked it opens high scores
 def clickedScore():
-    import reactionGameScores
     label.pack_forget()
     gameButton.pack_forget()
     highScoreButton.pack_forget()
+    import reactionGameScores
+    
 #
 #Buttons and Title
 label = tk.Label(
@@ -62,4 +58,4 @@ highScoreButton = tk.Button(
 )
 highScoreButton.pack()
 ###
-window.mainloop()
+##window.mainloop()
