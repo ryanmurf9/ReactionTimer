@@ -61,8 +61,6 @@ class Database:
             
             
         
-db = Database()
-db.getScoreData()
 
 
 
