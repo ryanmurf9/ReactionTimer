@@ -9,7 +9,7 @@ class Database:
         self.userList = []
         self.scoreList = []
         self.dateList = []
-        
+
     #Used to create the SQL Database; only used once
     def tableCreator(self):
         connection = sqlite3.connect("highScores.sqlite")
@@ -30,7 +30,7 @@ class Database:
         for x in scoreArray:
             if x[0] > lowScore:
                 lowScore = x[0]
-    
+
          #Option if score qualifies and the list is full
         if score < lowScore and len(scoreArray) == 10:
             now = datetime.now()
@@ -47,6 +47,24 @@ class Database:
         connection.commit()
         connection.close()
 
+    #Returns true or false
+    def isHighScore(score):
+        connection = sqlite3.connect("highScores.sqlite")
+        crsr = connection.cursor()
+
+        #Figuring out the lowest score (INCOMPLETE)
+        crsr.execute("SELECT score FROM scoreTable")
+        scoreArray = crsr.fetchall()
+        lowScore = 0
+        for x in scoreArray:
+            if x[0] > lowScore:
+                lowScore = x[0]
+
+        if(lowScore > score or len(scoreArray) < 10):
+            return true
+        else:
+            return false
+            
     #Used to retrieve and formate the highscore table data
     def getScoreData(self):
         #Connecting to database and filling scoreArray with data
@@ -58,9 +76,3 @@ class Database:
             self.userList.append(x[0])
             self.scoreList.append(x[1])
             self.dateList.append(x[2])
-            
-            
-        
-
-
-
