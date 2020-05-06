@@ -4,9 +4,6 @@ import tkinter as tk
 #Sorts out resolution
 screenW, screenH = pyautogui.size()
 resolution=str(screenW)+"x"+str(screenH)
-#window = tk.Tk()
-#window.title("Reaction Game")
-#window.geometry(resolution)
 #
 
 
