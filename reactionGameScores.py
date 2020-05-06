@@ -8,18 +8,24 @@ resolution=str(screenW)+"x"+str(screenH)
 
 
 class score(tk.Label):
-    self.userArray=['one','two','three','four','five','six','seven','eight','nine','ten']
-    self.scoreArray=['1','2','3','4','5','6','7','8','9','10']
-    self.dateArray=['1/1','1/2','1/3','1/4','1/5','1/6','1/7','1/8','1/9','1/10']
     def __init__(self):
         self.newx=(screenW/2)
         self.newy=250
         self.counter=0
+        self.userArray=[]
+        self.scoreArray=[]
+        self.dateArray=[]
+
+    def setArrays(self, a, b, c):
+        self.userArray = a
+        self.scoreArray = b
+        self.dateArray = c
+
     def createScreen(self):
-        while self.counter <10:
+        while self.counter < len(self.userArray):
             label1 = tk.Label(
                 font=("Courier", 20),
-                text=userArray[self.counter],
+                text=self.userArray[self.counter],
                 foreground="black",
                 background="#f0f0f0",
             )
@@ -27,7 +33,7 @@ class score(tk.Label):
             label1.place(x=self.newx-100,y=self.newy)
             label2 = tk.Label(
                 font=("Courier", 20),
-                text=scoreArray[self.counter],
+                text=self.scoreArray[self.counter],
                 foreground="black",
                 background="#f0f0f0",
 
@@ -35,7 +41,7 @@ class score(tk.Label):
             label2.place(x=self.newx,y=self.newy)
             label3 = tk.Label(
                 font=("Courier", 20),
-                text=dateArray[self.counter],
+                text=self.dateArray[self.counter],
                 foreground="black",
                 background="#f0f0f0",
 
