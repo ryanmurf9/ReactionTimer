@@ -44,9 +44,13 @@ class Button(tk.Button):
             font=("Courier", 30),
             text=('Game Over'),
             foreground="black",  
-            background="#f0f0f0"
+            background="#f0f0f0",
+            command=self.clickedGameOver
         )
         gameOver.pack()
+    def clickedGameOver(self):
+       from main import state
+       state='menu'
 
 
         

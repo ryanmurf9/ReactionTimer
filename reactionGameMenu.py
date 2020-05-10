@@ -10,7 +10,8 @@ def clickedGame():
     gameButton.pack_forget()
     highScoreButton.pack_forget()
     label.pack_forget()
-    import reactionGameGame
+    from main import state
+    state='game'
     
     
 #
@@ -32,6 +33,7 @@ label = tk.Label(
     background="#f0f0f0"
 )
 label.pack()
+
 gameButton = tk.Button(
     font=("Courier", 30),
     padx=100,
