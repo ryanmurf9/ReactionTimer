@@ -57,5 +57,6 @@ highScoreButton = tk.Button(
     
 )
 highScoreButton.pack()
+print('yeet this meat2')
 ###
 ##window.mainloop()

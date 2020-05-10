@@ -11,15 +11,19 @@ window.title("Reaction Game")
 window.geometry(resolution)
 #Must be in window.geometry("500x500") format
 import reactionGameMenu
+
+
+state='menu'
+running=True
 window.mainloop()
 '''
-running=True
 while running:
-    if state=menu:
-
-    if state=score:
-
-    if state=game:
-
-Kill program
+    if state=='menu':
+        import reactionGameMenu
+    if state=='score':
+        import reactionGameScore
+    if state=='game':
+        import reactionGameGame
+#Kill program
 '''
+
